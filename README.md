@@ -30,7 +30,9 @@
      
      • sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourStrong@Passw0rd>" -p 1433:1433 --name sql1 --hostname sql1 -v /data:/var/opt/mssql/data -d mcr.microsoft.com/mssql/server:2019-latest
          (Mount a host directory as data volume)
-
-In case of error, check the log: sudo docker logs sql1
-
-In case of "Access is denied" for non-root user error, set the non-root user as the owner of the files: chown -R 10001:0 <database file dir> or check (https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-security?view=sql-server-ver16)
+       
+     • sudo docker logs sql1
+           (In case of error, check the log)
+         
+      • sudo chown -R 10001:0 <database file dir>
+           (In case of "Access is denied" for non-root user error, set the non-root user as the owner of the files. "https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-security?view=sql-server-ver16")
